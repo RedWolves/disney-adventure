@@ -22,20 +22,21 @@
       position: relative;
       min-height: 100vh;
       width: 100%;
-      overflow: clip;
+      overflow: hidden;
       display: grid;
+      align-items: start;
     }
 
     .hero img.bg {
-position: absolute;
-left: 0;
-top: 0;
-width: 100%; /* bleed off on the right side */
-object-fit: cover;
-object-position: left top; /* always show left side */
-filter: saturate(1.05);
-z-index: 0;
-}
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%; /* bleed off on the right side */
+      object-fit: cover;
+      object-position: left top; /* always show left side */
+      filter: saturate(1.05);
+      z-index: 0;
+    }
 
     /* subtle edge vignette to keep text readable */
     .hero::after {
@@ -48,10 +49,9 @@ z-index: 0;
     }
 
     .text-wrap {
-      position: relative; /* sit above image and vignette */
+      position: relative;
       z-index: 2;
       margin: var(--pad);
-      /* place on the right-third of the page */
       justify-self: end;
       max-width: min(42ch, 32vw);
       margin-top: clamp(16px, 8vh, 120px);
@@ -61,7 +61,9 @@ z-index: 0;
       border-radius: 18px;
       padding: calc(var(--pad) * 1.25);
       box-shadow: 0 6px 28px rgba(0,0,0,.35);
-    }
+      height: auto; /* only as tall as its content */
+      display: inline-block;
+      }
 
     h1 {
       margin: 0 0 .35em 0;
